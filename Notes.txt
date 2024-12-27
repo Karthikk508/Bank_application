@@ -3,8 +3,6 @@ errors {
 1) mysql connector , add mysql connector library in the : project structure/libraries
 
 
-
-
 }
 
 IFSC Code description:
