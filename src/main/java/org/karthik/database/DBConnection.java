@@ -11,7 +11,7 @@ public class DBConnection {
 
    static {
 
-       String url = "jdbc:mysql://localhost:3036/bankapplicatondata";
+       String url = "jdbc:mysql://localhost:3306/bankapplicationdata";
        String username = "root";
        String password = "Kannan@26";
 

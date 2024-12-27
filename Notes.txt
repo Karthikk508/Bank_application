@@ -1,0 +1,28 @@
+errors {
+
+1) mysql connector , add mysql connector library in the : project structure/libraries
+
+
+
+
+
+
+}
+
+
+
+
+
+IFSC Code description:
+
+Exact length should be 11
+First 4 alphabets
+Fifth character is 0 (zero)
+Last six characters (usually numeric, but can be alphabetic)
+E.g.
+
+SBIN1234567
+
+
+Timestamp(fsp):
+In SQL, fsp stands for Fractional Seconds Precision, which defines the number of digits used to store fractional seconds in a TIMESTAMP or DATETIME data type. It determines how precise the time representation is down to fractions of a second.

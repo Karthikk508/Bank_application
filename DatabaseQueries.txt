@@ -1,0 +1,38 @@
+create table UserDetails(
+
+     Id int not null,
+     AcntId int not null,
+     FirstName varchar(255) not null,
+     LastName varchar(255),
+     ContactNumber varchar(10) unique,
+     Email varchar(255) unique,
+     Address varchar(255)
+);
+
+
+create table AccountDetails(
+          AcntId int not null,
+          UserId int,
+          FirstName varchar(255),
+          LastName varchar(255),
+          ContactNumber varchar(10) unique,
+          emailId varchar(255) unique,
+          address varchar(255),
+          AcntNo varchar(11) not null unique,
+          dob date unique,
+          AcntType varchar(255),
+          Ifsc varchar(11) unique,
+          Branch varchar(255),
+          Doi timestamp
+);
+
+
+INSERT INTO accountdetails
+VALUES
+(2, NULL, "priya", "sharma", "76458921", "priya@gmail.com", "nanganallur", "2365789541", "savings", "987654321", "chennai", "1995-07-15"),
+(3, NULL, "vikram", "singh", "45698712", "vikram@gmail.com", "mylapore", "1456798542", "current", "876543210", "madurai", "1990-12-10"),
+(4, NULL, "divya", "kumar", "34876591", "divya@gmail.com", "besantnagar", "1256789543", "savings", "765432109", "coimbatore", "1998-04-25"),
+(5, NULL, "raj", "nair", "98765432", "raj@gmail.com", "tambaram", "7856348956", "fixed", "654321098", "erode", "1993-11-30"),
+(6, NULL, "anitha", "krishnan", "12345678", "anitha@gmail.com", "adyar", "2145789635", "savings", "543210987", "trichy", "2000-01-20");
+
+

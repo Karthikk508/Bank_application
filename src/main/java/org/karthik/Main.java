@@ -1,17 +1,66 @@
 package org.karthik;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import org.karthik.service.BankingDao;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.Scanner;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+
+public class Main {
+
+    static Scanner scanner;
+
+    public static void main(String[] args) throws SQLException {
+
+        initiate();
+
+    }
+    public static void initiate() throws SQLException {
+
+        scanner = new Scanner(System.in);
+
+        while(true){
+
+            System.out.println("""
+                    Welcome to KBank :
+      
+                    1) Register
+                    2) Login
+                    3) Exit
+                    """);
+
+            System.out.println("Enter your option between 1 and 3 : ");
+
+            int next = scanner.nextInt();
+            boolean flag = true;
+
+            switch (next){
+                case 1 -> register();
+                case 2 -> login();
+                case 3 -> flag = false;
+            }
+            if(!flag){
+                break;
+            }
         }
+
+
+    }
+
+    private static void login() {
+    }
+
+    public static void register() throws SQLException {
+
+//        System.out.println("Enter account number : ");
+//        String acntNo = scanner.next();
+//        System.out.println("Enter date of birth in 'yyyy-MM-dd' format");
+//        String dob = scanner.next();
+
+        String acntNo = "1456789545";
+        String dob = "2002-03-02";
+
+        BankingDao obj = new BankingDao();
+        obj.register(acntNo,dob);
     }
 }
