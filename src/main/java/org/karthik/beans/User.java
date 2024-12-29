@@ -2,23 +2,63 @@ package org.karthik.beans;
 
 public class User {
 
+    private String userId;
+    private String acntId;
+    private String username;
+    private String password;
     private String firstName;
-    private String DateOfBirth;
-    private String ContactNumber;
-    private String EmailAddress;
-    private String ResidentialAddress;
-    private String IdentificationProof;
+    private String lastName;
+    private String contact;
+    private String email;
+    private String address;
 
-
-    public User(String firstName, String dateOfBirth, String contactNumber, String emailAddress, String residentialAddress, String identificationProof) {
-        this.firstName = firstName;
-        this.DateOfBirth = dateOfBirth;
-        this.ContactNumber = contactNumber;
-        this.EmailAddress = emailAddress;
-        this.ResidentialAddress = residentialAddress;
-        this.IdentificationProof = identificationProof;
+    public User(){
     }
 
+
+    public User(String userId, String acntId, String username, String password, String firstName, String lastName, String contact, String email, String address) {
+        this.userId = userId;
+        this.acntId = acntId;
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.contact = contact;
+        this.email = email;
+        this.address = address;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getAcntId() {
+        return acntId;
+    }
+
+    public void setAcntId(String acntId) {
+        this.acntId = acntId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -28,58 +68,52 @@ public class User {
         this.firstName = firstName;
     }
 
-    public String getDateOfBirth() {
-        return DateOfBirth;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
-        DateOfBirth = dateOfBirth;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getContactNumber() {
-        return ContactNumber;
+    public String getContact() {
+        return contact;
     }
 
-    public void setContactNumber(String contactNumber) {
-        ContactNumber = contactNumber;
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
-    public String getEmailAddress() {
-        return EmailAddress;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailAddress(String emailAddress) {
-        EmailAddress = emailAddress;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getResidentialAddress() {
-        return ResidentialAddress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setResidentialAddress(String residentialAddress) {
-        ResidentialAddress = residentialAddress;
-    }
-
-    public String getIdentificationProof() {
-        return IdentificationProof;
-    }
-
-    public void setIdentificationProof(String identificationProof) {
-        IdentificationProof = identificationProof;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
 
     @Override
     public String toString() {
-        return "Banking_Application.User{" +
-                "DateOfBirth='" + DateOfBirth + '\'' +
-                ", ContactNumber='" + ContactNumber + '\'' +
-                ", EmailAddress='" + EmailAddress + '\'' +
-                ", ResidentialAddress='" + ResidentialAddress + '\'' +
-                ", IdentificationProof='" + IdentificationProof + '\'' +
+        return "User{" +
+                "userId='" + userId + '\'' +
+                ", acntId='" + acntId + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", contact='" + contact + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
                 '}';
     }
-
 
 }
