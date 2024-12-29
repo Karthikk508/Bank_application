@@ -53,7 +53,7 @@ public class BankingDao {
 
             PreparedStatement psI = con.prepareStatement(insertQuery);
 
-            psI.executeUpdate();
+            psI.executeUpdate() ;
 
 
 
