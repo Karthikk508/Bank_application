@@ -52,13 +52,11 @@ public class Main {
 
     public static void register() throws SQLException {
 
-//        System.out.println("Enter account number : ");
-//        String acntNo = scanner.next();
-//        System.out.println("Enter date of birth in 'yyyy-MM-dd' format");
-//        String dob = scanner.next();
+        System.out.println("Enter account number : ");
+        String acntNo = scanner.next();
+        System.out.println("Enter date of birth in 'yyyy-MM-dd' format");
+        String dob = scanner.next();
 
-        String acntNo = "1456789545";
-        String dob = "2002-03-02";
 
         BankingDao obj = new BankingDao();
         obj.register(acntNo,dob);
