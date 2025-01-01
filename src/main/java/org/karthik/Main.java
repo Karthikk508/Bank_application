@@ -47,7 +47,15 @@ public class Main {
 
     }
 
-    private static void login() {
+    private static void login() throws SQLException {
+
+        System.out.println("Enter username : ");
+        String userName =  scanner.next();
+        System.out.println("Enter password : ");
+        String password = scanner.next();
+
+        BankingDao obj = new BankingDao();
+        obj.login(userName,password);
     }
 
     public static void register() throws SQLException {

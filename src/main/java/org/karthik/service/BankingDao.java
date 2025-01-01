@@ -91,4 +91,35 @@ public class BankingDao {
         }
     }
 
+    public void login(String userName, String password) throws SQLException {
+
+        String query = "SELECT * FROM userdetails WHERE username = ? and pword = ?";
+
+        Connection con = DBConnection.getConnection();
+        PreparedStatement ps = con.prepareStatement(query);
+
+        ps.setString(1,userName);
+        ps.setString(2,password);
+
+        ResultSet rs = ps.executeQuery();
+
+        if(rs.next()){
+
+            String username = rs.getString(3);
+            String pword = rs.getString(4);
+
+
+            if(userName.equals(username) && password.equals(pword)){
+                System.out.println("Login successful");
+            }
+            else{
+                System.out.println("Incorrect cerdentials");
+            }
+
+        }
+        else{
+            System.out.println("User not registered");
+        }
+
+    }
 }
