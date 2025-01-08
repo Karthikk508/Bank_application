@@ -2,10 +2,7 @@ package org.karthik.service;
 
 import org.karthik.beans.User;
 import org.karthik.database.DBConnection;
-
 import java.sql.*;
-import java.time.LocalDate;
-import java.util.List;
 import java.util.Scanner;
 
 
@@ -29,7 +26,7 @@ public class BankingDao {
         ps.setString(2,dob);
 
         ResultSet rs = ps.executeQuery();
-        ResultSetMetaData resultSetMetaData = ps.getMetaData();
+       // ResultSetMetaData resultSetMetaData = ps.getMetaData();
 
 
         if(rs.next()){
@@ -119,8 +116,7 @@ public class BankingDao {
                             2) deposits
                             3) transfer to bank account
                             4) quick transfer
-                            5) exit      
-                            """
+                            5) exit"""
                     );
 
                     scanner = new Scanner(System.in);
@@ -152,12 +148,12 @@ public class BankingDao {
 
     }
 
-    private void viewBalance(String acntId) throws SQLException {
+    private void viewBalance(String acntId) {
 
         String query = "SELECT * FROM accountdetails WHERE AcntId = ?";
 
         try(Connection con = DBConnection.getConnection();
-            PreparedStatement ps = con.prepareStatement(query);){
+            PreparedStatement ps = con.prepareStatement(query)){
 
             ps.setString(1,acntId);
 
