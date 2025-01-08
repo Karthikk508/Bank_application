@@ -3,6 +3,9 @@ package org.karthik;
 import org.karthik.service.BankingDao;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -11,6 +14,7 @@ public class Main {
     static Scanner scanner;
 
     public static void main(String[] args) throws SQLException {
+
 
         initiate();
 
@@ -69,4 +73,6 @@ public class Main {
         BankingDao obj = new BankingDao();
         obj.register(acntNo,dob);
     }
+
+
 }

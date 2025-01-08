@@ -93,13 +93,12 @@ public class BankingDao {
 
     public void login(String userName, String password) throws SQLException {
 
-        String query = "SELECT * FROM userdetails WHERE username = ? and pword = ?";
+        String query = "SELECT * FROM userdetails WHERE username = ?";
 
         Connection con = DBConnection.getConnection();
         PreparedStatement ps = con.prepareStatement(query);
 
         ps.setString(1,userName);
-        ps.setString(2,password);
 
         ResultSet rs = ps.executeQuery();
 
@@ -107,10 +106,40 @@ public class BankingDao {
 
             String username = rs.getString(3);
             String pword = rs.getString(4);
+            String accountId = rs.getString("acntId");
 
 
             if(userName.equals(username) && password.equals(pword)){
-                System.out.println("Login successful");
+
+                while(true){
+
+                    System.out.println(
+                            """
+                            1) view balance
+                            2) deposits
+                            3) transfer to bank account
+                            4) quick transfer
+                            5) exit      
+                            """
+                    );
+
+                    scanner = new Scanner(System.in);
+
+                    boolean flag = false;
+
+                    int n = scanner.nextInt();
+
+                    switch (n){
+
+                        case 1 -> viewBalance(accountId);
+                        case 2 -> deposits();
+                        case 3 -> transfer();
+                        case 4 -> quickTransfer();
+                        case 5 -> flag = true;
+                    }
+
+                    if(flag) break;
+                }
             }
             else{
                 System.out.println("Incorrect cerdentials");
@@ -122,4 +151,46 @@ public class BankingDao {
         }
 
     }
+
+    private void viewBalance(String acntId) throws SQLException {
+
+        String query = "SELECT * FROM accountdetails WHERE AcntId = ?";
+
+        try(Connection con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement(query);){
+
+            ps.setString(1,acntId);
+
+            try(ResultSet rs = ps.executeQuery()){
+
+                if (rs.next()) {
+                    System.out.println("Your balance is: " + rs.getString("acBalance"));
+                } else {
+                    System.out.println("Account not found.");
+                }
+            }
+        }
+        catch (SQLException e){
+            System.out.println("Error in fetching data from accountdetails table " + e.getMessage());
+        }
+
+        scanner = new Scanner(System.in);
+        System.out.println("Enter 1 to exit");
+        int n = scanner.nextInt();
+        if(n == 1) return;
+        viewBalance(acntId);
+    }
+
+    private void quickTransfer() {
+
+        System.out.println("quickTransfer");
+    }
+
+    private void transfer() {
+    }
+
+    private void deposits() {
+    }
+
+
 }
