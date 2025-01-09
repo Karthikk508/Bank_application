@@ -247,7 +247,7 @@ public class BankingDao {
             }
             else {
                 System.out.println("Bye...");
-                flag = false;
+                return;
             }
         }
 
@@ -300,8 +300,8 @@ public class BankingDao {
 
             long receiver = Long.parseLong(Objects.requireNonNull(getBalanceUsingAcntNo(receiverAcNo)));
             receiver += amount;
-            String query1 = "update accountdetails set acBalance = '"+receiver+"' where AcntNo = "+receiverAcNo+";";
-            st.executeUpdate(query1);
+            query = "update accountdetails set acBalance = "+receiver+" where AcntNo = "+receiverAcNo+";";
+            st.executeUpdate(query);
 
             con.close();
 
