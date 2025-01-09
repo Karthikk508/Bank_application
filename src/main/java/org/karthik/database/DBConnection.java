@@ -13,10 +13,9 @@ public class DBConnection {
     private static final String PASSWORD = "Kannan@26";
 
     private DBConnection() {
-        // Private constructor to prevent instantiation
     }
 
-    // Method to get a new connection
+
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USERNAME, PASSWORD);
     }
@@ -25,7 +24,6 @@ public class DBConnection {
 
 
 
-//
 //public class DBConnection {
 //
 //
